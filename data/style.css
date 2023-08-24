@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: ui-sans-serif;
+    background: #fafafa;
+}
+
+.nav {
+    height: 80px;
+    background: #fff;
+    border: 1px solid #f1f1f1;
+}
+
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 80px;
+    margin: 0;
+    background: linear-gradient(71deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 173, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.content {
+    height: 280px;
+    background: #fff;
+    box-shadow: 0 17px 37px -12px rgba(104, 104, 104, .24);
+    border-radius: 10px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    margin: 5% 5% 0 5%;
+}
+
+form {
+    width: fit-content;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-group {
+    text-align: right;
+}
+
+label {
+    vertical-align: middle;
+    font-size: 1.5rem;
+    color: rgba(131, 58, 180, 1);
+    font-weight: bold;
+}
+
+input {
+    width: 15em;
+    height: 3em;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient(to right, #fff, #fff), linear-gradient(71deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 173, 1) 70%, rgba(252, 176, 69, 1) 100%);
+    color: purple;
+    padding-left: 5px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid orchid;
+}
+
+button {
+    width: 2.2em;
+    height: 2.2em;
+    font-size: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient(to right, #fff, #fff), linear-gradient(71deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 173, 1) 70%, rgba(252, 176, 69, 1) 100%);
+    margin-left: 60%;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+#popup {
+    width: fit-content;
+    min-width: 20%;
+    max-width: 60%;
+    min-height: 40px;
+    background: #fff;
+    box-shadow: 0 17px 37px -12px rgba(104, 104, 104, .24);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5rem;
+    color: purple;
+    visibility: hidden;
+}

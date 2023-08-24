@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>🔨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<div class="nav">
+    <h3>WIFI MANAGER</h3>
+</div>
+
+<div class="content">
+    <form action="" method="post" id="info_form">
+        <div class="form-group">
+            <label for="ssid">SSID</label>
+            <input type="text" name="wifi_ssid" id="ssid" required maxlength="32">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" name="wiif_password" id="password" onkeyup="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
+        </div>
+        <div class="form-group">
+            <label for="mac">MAC</label>
+            <input type="text" name="wifi_mac" id="mac" required pattern="([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})">
+        </div>
+        <button type="submit">👌</button>
+    </form>
+</div>
+
+<div id="popup">
+    <span id="message"></span>
+</div>
+
+
+<script src="script.js" defer></script>
+
+</html>
