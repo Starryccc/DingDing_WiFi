@@ -15,14 +15,15 @@ String password;
 String mac;
 uint8_t mac_arr[6];
 
-void parserMAC(const char *mac_str, uint8_t mac_arr[6])
+void parserMAC(String mac_string, uint8_t mac_arr[6])
 {
   Serial.println("parserMAC");
-
+  const char * _mac = mac_string.c_str();
+  
   for (int i = 0; i < 6; i++)
   {
-    sscanf(mac_str, "%02x", &mac_arr[i]);
-    mac_str += 3;
+    sscanf(_mac, "%02x", &mac_arr[i]);
+    _mac += 3;
   }
 }
 
@@ -30,7 +31,7 @@ void openAP()
 {
   Serial.println("Open AP");
 
-  parserMAC(mac.c_str(), mac_arr);
+  parserMAC(mac, mac_arr);
 
   WiFi.mode(WIFI_AP);
   WiFi.enableAP(true);
@@ -44,6 +45,10 @@ void openAP()
     Serial.println("Failed to set MAC address");
     return;
   }
+
+  Serial.printf("#     SSID: %s\n", ssid);
+  Serial.printf("# Password: %s\n", password);
+  Serial.printf("#      MAC: %s\n", mac.c_str());
 
   if (password.length() == 0)
   {
@@ -119,14 +124,16 @@ void runWebServer()
 
               else
               {
-                Serial.println("Request send 200");
+                Serial.println("Request send done");
                 request->send(200, "text/plain", "Done");
-                ssid = _ssid_str.c_str();
-                password = _password_str.c_str();
-                mac = _mac_str.c_str();
+                ssid = _ssid_str;
+                password = _password_str;
+                mac = _mac_str;
+                preferences.begin("wifi_config", false);
                 preferences.putString("ssid", ssid);
                 preferences.putString("password", password);
                 preferences.putString("mac", mac);
+                preferences.end();
                 openAP();
               } });
   server.begin();
@@ -136,7 +143,7 @@ void setup()
 {
   Serial.begin(115200);
 
-  if (!preferences.begin("wifi_info", false))
+  if (!preferences.begin("wifi_config", false))
   {
     Serial.println("Failed to initialize Preferences");
   }
@@ -144,6 +151,8 @@ void setup()
   ssid = preferences.getString("ssid", "");
   password = preferences.getString("password", "");
   mac = preferences.getString("mac", "");
+
+  preferences.end();
 
   if (ssid == "")
   {
