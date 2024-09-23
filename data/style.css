@@ -92,7 +92,7 @@ button:active {
 #popup {
     width: fit-content;
     min-width: 20%;
-    max-width: 60%;
+    max-width: 80%;
     min-height: 40px;
     background: #fff;
     box-shadow: 0 17px 37px -12px rgba(104, 104, 104, .24);

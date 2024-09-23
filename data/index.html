@@ -17,15 +17,15 @@
     <form action="" method="post" id="info_form">
         <div class="form-group">
             <label for="ssid">SSID</label>
-            <input type="text" name="wifi_ssid" id="ssid" required maxlength="32">
+            <input type="text" placeholder="必填" name="wifi_ssid" id="ssid" required maxlength="32">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" name="wiif_password" id="password" onkeyup="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
+            <input type="text" placeholder="可为空" name="wiif_password" id="password" onkeyup="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
         </div>
         <div class="form-group">
             <label for="mac">MAC</label>
-            <input type="text" name="wifi_mac" id="mac" required pattern="([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})">
+            <input type="text" placeholder="aa:bb:cc:dd:ee:ff" name="wifi_mac" id="mac" required pattern="([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})">
         </div>
         <button type="submit">👌</button>
     </form>
