@@ -21,5 +21,5 @@ function toast(message) {
     popupText.textContent = message;
     setTimeout(() => {
         popup.style.visibility = 'hidden';
-    }, 5000);
+    }, 10000);
 }
